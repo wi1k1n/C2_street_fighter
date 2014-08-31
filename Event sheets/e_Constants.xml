@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>e_Constants</name>
+    <events>
+        <comment>&lt;-----   Константы мультиплеера   -----&gt;</comment>
+        <variable constant="1" name="MULTIPLAYER_SERVER_LINK" sid="8543880158284887" static="0" type="text">wss://multiplayer.scirra.com</variable>
+        <variable constant="1" name="MULTIPLAYER_GAME_NAME" sid="1011775820613897" static="0" type="text">com.leon.street-fighter-the-movie</variable>
+        <variable constant="1" name="MULTIPLAYER_INSTANCE_NAME" sid="3862161466162662" static="0" type="text">default</variable>
+        <variable constant="1" name="MULTIPLAYER_ROOM_NAME" sid="3704027259237112" static="0" type="text">main</variable>
+        <variable constant="1" name="MULTIPLAYER_MAX_PEERS_QTY" sid="2472380443446092" static="0" type="number">0</variable>
+        <comment>&lt;-----   Характеристики локации   -----&gt;</comment>
+        <variable comment='X-координата &quot;спавна&quot; героя' constant="1" name="SPAWN_X" sid="350227918964803" static="0" type="number">352</variable>
+        <variable comment='Y-координата &quot;спавна&quot; героя' constant="1" name="SPAWN_Y" sid="176155877965794" static="0" type="number">448</variable>
+        <comment>&lt;-----   Движение героев   -----&gt;</comment>
+        <variable comment="Максимальная скорость движения героя вперед" constant="1" name="MAXSPEED_FORWARD" sid="9597053378982828" static="0" type="number">200</variable>
+        <variable comment="Максимальная скорость движения героя задом" constant="1" name="MAXSPEED_BACKWARD" sid="7915676213565138" static="0" type="number">100</variable>
+        <variable comment="Максимальная скорость движения героя в прыжке" constant="1" name="MAXSPEED_JUMP" sid="9291308250410469" static="0" type="number">150</variable>
+        <comment>&lt;-----   Характеристики героев   -----&gt;</comment>
+        <variable comment="Изначальное количество жизней каждого героя. ВАЖНО!!! При изменении, проверяйте e_Multiplayer, на ограничение по размеру передаваемых значений" constant="1" name="MAX_HEALTH" sid="1805945764046896" static="0" type="number">100</variable>
+        <variable comment="Первая ступень понижения жизни героя" constant="1" name="HEALTH_COLOR_BOUND_1" sid="4661192929789844" static="0" type="number">75</variable>
+        <variable comment="Вторая ступень понижения жизни героя" constant="1" name="HEALTH_COLOR_BOUND_2" sid="5979230403897052" static="0" type="number">50</variable>
+        <variable comment="Третья ступень понижения жизни героя" constant="1" name="HEALTH_COLOR_BOUND_3" sid="1684294674382541" static="0" type="number">25</variable>
+        <comment>&lt;-----  Характеристики ударов  -----&gt;</comment>
+        <variable comment="Количество тиков программы, на которое появится область удара" constant="1" name="HIT_TIME_DELAY" sid="6881846846804755" static="0" type="number">10</variable>
+        <variable comment='Диаметр области удара &quot;kick&quot;' constant="1" name="HIT_KICK_AREA" sid="5685478703863189" static="0" type="number">32</variable>
+        <variable comment='Сила удара &quot;kick&quot;' constant="1" name="HIT_KICK_DMG" sid="8850363566329103" static="0" type="number">10</variable>
+    </events>
+</c2eventsheet>

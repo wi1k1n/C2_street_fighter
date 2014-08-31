@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>e_PlayerSelection</name>
+    <events>
+        <include>e_Functions</include>
+        <comment>НЕ ОПТИМИЗИРОВАНО</comment>
+        <event-block collapsed="1" sid="9995386852810918">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7541017045573981" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="4270258077109865" type="func">
+                    <param id="0" name="Name">&quot;SelectionInitialize&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="1" name="Request project file" sid="7789764301738169" type="ajax">
+                    <param id="0" name="Tag">&quot;actionsDB&quot;</param>
+                    <param id="1" name="File">actionsDB.json</param>
+                </action>
+                <action id="0" name="Add key" sid="4661477106175929" type="actions">
+                    <param id="0" name="Key">&quot;kick&quot;</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5316547599211144">
+                    <conditions>
+                        <condition id="12" inverted="1" name="Supports multiplayer" sid="2125419395342884" type="Multiplayer" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6346763453573608">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="1234650440136656" type="dynamicText">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;title&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="5105297487158034" type="dynamicText">
+                                    <param id="0" name="Text">&quot;Multiplayer not supported&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3332512154723498">
+            <conditions>
+                <condition id="0" name="On completed" sid="3092052027896286" type="ajax">
+                    <param id="0" name="Tag">&quot;actionsDB&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Load" sid="1310197040046529" type="actionsDB">
+                    <param id="0" name="JSON">ajax.LastData</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="583758274101835">
+            <conditions>
+                <condition id="1" name="On text changed" sid="9612213578796448" type="usernameTextBox" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8478447305466294">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="8527537384355438" type="System">
+                            <param id="0" name="First value">func.Call(&quot;userNameValidation&quot;, usernameTextBox.Text)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                        <condition id="12" name="Supports multiplayer" sid="5650498835927943" type="Multiplayer" />
+                        <condition id="0" inverted="1" name="Is empty" sid="1425523219492194" type="actionsDB" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Start" sid="7311255425092637" type="playersSelection">
+                            <param id="0" name="From">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="2668009435966706" type="playersSelection">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1625796073592322">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="8268343913471811" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Stop" sid="4021617617510306" type="playersSelection" />
+                        <action id="-16" name="Set opacity" sid="7575444854843306" type="playersSelection">
+                            <param id="0" name="Opacity">30</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9470196039691332">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="9125005474132854" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">playersSelection</param>
+                </condition>
+                <condition id="-10" name="Compare opacity" sid="6043232959998977" type="playersSelection">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Opacity">100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="4157280356152997" type="func">
+                    <param id="0" name="Name">&quot;playerSelected&quot;</param>
+                    <param id="1" name="Parameter {n}">playersSelection.id</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block collapsed="1" sid="3283093603995457">
+            <conditions>
+                <condition id="0" name="On function" sid="3988553213005267" type="func">
+                    <param id="0" name="Name">&quot;SelectionInitialize&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5265160542723925">
+                    <conditions>
+                        <condition id="3" name="Local key exists" sid="4325521396244149" type="WebStorage">
+                            <param id="0" name="Key">&quot;username&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7632979722053459">
+                            <conditions>
+                                <condition id="6" inverted="1" name="Compare key value (as text)" sid="1045171106179189" type="WebStorage">
+                                    <param id="0" name="Key">&quot;username&quot;</param>
+                                    <param id="1" name="Text to compare">&quot;&quot;</param>
+                                    <param id="2" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="9450584242912257" type="usernameTextBox">
+                                    <param id="0" name="Text">WebStorage.LocalValue(&quot;username&quot;)</param>
+                                </action>
+                                <action id="3" name="Start" sid="1746132121602787" type="playersSelection">
+                                    <param id="0" name="From">0</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="7847262587906973" type="playersSelection">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6847183481092184">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6415129012558017" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Stop" sid="4511324429056117" type="playersSelection" />
+                                <action id="-16" name="Set opacity" sid="4032051691986532" type="playersSelection">
+                                    <param id="0" name="Opacity">30</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2636188116945278">
+            <conditions>
+                <condition id="0" name="On function" sid="2760493296471843" type="func">
+                    <param id="0" name="Name">&quot;userNameValidation&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="8508438433736564" type="func">
+                    <param id="0" name="Value">(func.Param(0) = &quot;&quot;) ? 0 : 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="586760935599043">
+            <conditions>
+                <condition id="0" name="On function" sid="7490513226715818" type="func">
+                    <param id="0" name="Name">&quot;playerSelected&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="593157080467823">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="6737786294890013" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7602146903718932" type="System">
+                            <param id="0" name="Variable">UserName</param>
+                            <param id="1" name="Value">usernameTextBox.Text</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6325304697920496" type="System">
+                            <param id="0" name="Variable">PlayerSelected</param>
+                            <param id="1" name="Value">func.Param(0)</param>
+                        </action>
+                        <action id="0" name="Set local value" sid="5317586289597185" type="WebStorage">
+                            <param id="0" name="Key">&quot;username&quot;</param>
+                            <param id="1" name="Value">usernameTextBox.Text</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="7383204543135094" type="System">
+                            <param id="0" name="Layout">MainGame</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

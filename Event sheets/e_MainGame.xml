@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>e_MainGame</name>
+    <events>
+        <include>e_MultiPlayer</include>
+        <variable constant="0" name="PlayerSelected" sid="7099839042314271" static="0" type="number">1</variable>
+        <event-block sid="3845099118841671">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7971786136130885" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="8011458791647298" type="func">
+                    <param id="0" name="Name">&quot;log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Layout: &apos;&quot; &amp; LayoutName &amp; &quot;&apos; started&quot;</param>
+                </action>
+                <action id="-9" name="Destroy" sid="3045934620175883" type="Players" />
+            </actions>
+        </event-block>
+        <event-block sid="8971002920281683">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="7032013146123538" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">menuBtn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="2393286222415772" type="System">
+                    <param id="0" name="Layout">PlayerSelection</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7651207911188587">
+            <conditions>
+                <condition id="1" name="On any click" sid="7034911251079425" type="Mouse" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4486565461822402">
+                    <conditions>
+                        <condition id="7" inverted="1" name="Cursor is over object" sid="6834545769447283" type="Mouse">
+                            <param id="0" name="Object">logTextBox</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Set unfocused" sid="6747746116479539" type="logTextBox" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

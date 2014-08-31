@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>e_Functions</name>
+    <events>
+        <event-group collapsed="1" description="Содержит функции обработки логирования" sid="6159550670030802" title="Log management">
+            <sub-events>
+                <comment>Основная функция для записи логов</comment>
+                <event-block sid="4637071822265263">
+                    <conditions>
+                        <condition id="0" name="On function" sid="1917650737076155" type="func">
+                            <param id="0" name="Name">&quot;log&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="2644336401412055" type="logDataBase">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">func.Param(0)</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3045369187765251" type="logTextBox">
+                            <param id="0" name="Text">Self.Text &amp; &quot;   &quot; &amp; func.Param(0) &amp; newline</param>
+                        </action>
+                        <action id="9" name="Scroll to bottom" sid="5389999996884404" type="logTextBox" />
+                    </actions>
+                </event-block>
+                <event-block collapsed="1" sid="5702793451294875">
+                    <conditions>
+                        <condition id="0" name="On function" sid="4017797098442808" type="func">
+                            <param id="0" name="Name">&quot;getHeroName&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2833272014329392">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="9795453399830536" type="func">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="7058352725340164" type="func">
+                                    <param id="0" name="Value">&quot;Akuma&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4412883135432729">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="5918448735048142" type="func">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="9949264078004081" type="func">
+                                    <param id="0" name="Value">&quot;Cammy&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>НЕ ОПТИМИЗИРОВАНО!</comment>
+        <event-block sid="5974698366540345">
+            <conditions>
+                <condition id="0" name="On function" sid="1679477990522028" type="func">
+                    <param id="0" name="Name">&quot;getActionName&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="return" sid="4937759204568877" static="0" type="text"></variable>
+                <event-block sid="4348877700333248">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="2687146111357023" type="func">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3178636151391689" type="System">
+                            <param id="0" name="Variable">return</param>
+                            <param id="1" name="Value">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2060811748838704">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="5954136005595289" type="func">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7294247556962755" type="System">
+                            <param id="0" name="Variable">return</param>
+                            <param id="1" name="Value">&quot;kick&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9426222561406175">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="8731197623628449" type="func">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2768849730282441" type="System">
+                            <param id="0" name="Variable">return</param>
+                            <param id="1" name="Value">&quot;duck&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1604667933073136">
+                    <conditions>
+                        <condition id="1" name="Compare parameter" sid="4768266852732675" type="func">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6904722351585152" type="System">
+                            <param id="0" name="Variable">return</param>
+                            <param id="1" name="Value">&quot;duck_back&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3561915135597433">
+                    <conditions />
+                    <actions>
+                        <action id="1" name="Set return value" sid="5553907637435303" type="func">
+                            <param id="0" name="Value">return</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
